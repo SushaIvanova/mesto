@@ -11,4 +11,4 @@
 *DOM
 
 ##  GitHub Pages
-* [Ссылка на проект](https://sushaivanova.github.io/russian-travel/)
+* [Ссылка на проект](https://sushaivanova.github.io/mesto/)
