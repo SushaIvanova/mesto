@@ -1,7 +1,6 @@
 .profile {
   display: flex;
   justify-content: space-between;
-  min-height: 120px;
   margin: 40px 0 50px;
   color: #fff;
 }

@@ -4,7 +4,7 @@
   padding-top: 45px;
   padding-bottom: 41px;
   min-height: 74px;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgba(32.94, 32.94, 32.94, 0.7);
 }
 
 @media (max-width: 470px) {

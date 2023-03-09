@@ -1,6 +1,6 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
-const popupOpenButtonElement = document.querySelector('.edit-button');
+const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 
 
 const openPopup = function() {
@@ -15,11 +15,18 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 
 const formElement = document.querySelector('.form');
-const nameElement = formElement.querySelector('.form__username');
-const captionElement = formElement.querySelector('.form__caption');
+const nameElement = formElement.querySelector('.form__element_type_username');
+const captionElement = formElement.querySelector('.form__element_type_caption');
 
-const nameContainerElement = document.querySelector('.info__name');
-const captionContainerElement = document.querySelector('.info__caption');
+const nameContainerElement = document.querySelector('.profile__info-name');
+const captionContainerElement = document.querySelector('.profile__info-caption');
+
+const handleFormClick = function() {
+  openPopup();
+
+  nameElement.value = nameContainerElement.textContent;
+  captionElement.value = captionContainerElement.textContent;
+}
 
 const handleFormSubmit = function(evt) {
   evt.preventDefault();
@@ -32,3 +39,4 @@ const handleFormSubmit = function(evt) {
 
 formElement.addEventListener('submit', handleFormSubmit);
 
+popupOpenButtonElement.addEventListener('click', handleFormClick);

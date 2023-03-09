@@ -14,59 +14,59 @@
     <main class="content">
       <section class="profile section">
         <div class="profile__container">
-          <div class="avatar">
-            <img class="avatar__image" src="images/avatar.jpg" alt="Фото Жак-Ив Кусто">
+          <div class="profile__avatar">
+            <img class="profile__avatar-image" src="images/avatar.jpg" alt="Фото Жак-Ив Кусто">
           </div>
-          <div class="info">
-            <h1 class="info__name">Жак-Ив Кусто</h1>
-            <p class="info__caption">Исследователь океана</p>
-            <button class="edit-button"></button>
+          <div class="profile__info">
+            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+            <p class="profile__info-caption">Исследователь океана</p>
+            <button type="button" class="profile__edit-button"></button>
           </div>
         </div>
-        <button class="add-button"></button>
+        <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements section">
-        <ul class="cards">
-          <li class="cards__item">
-            <img class="cards__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
-            <div class="cards__caption-container">
-              <h2 class="cards__caption-text">Карачаевск</h2>
-              <button class="like-button"></button>
+        <ul class="elements__table">
+          <li class="card">
+            <img class="card__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
+            <div class="card__caption-container">
+              <h2 class="card__caption-text">Карачаевск</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
-          <li class="cards__item">
-            <img class="cards__image" src="images/elbrus.jpg" alt="Эльбрус">
-            <div class="cards__caption-container">
-              <h2 class="cards__caption-text">Гора Эльбрус</h2>
-              <button class="like-button"></button>
+          <li class="card">
+            <img class="card__image" src="images/elbrus.jpg" alt="Эльбрус">
+            <div class="card__caption-container">
+              <h2 class="card__caption-text">Гора Эльбрус</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
-          <li class="cards__item">
-            <img class="cards__image" src="images/dombai.jpg" alt="Домбай">
-            <div class="cards__caption-container">
-              <h2 class="cards__caption-text">Домбай</h2>
-              <button class="like-button"></button>
+          <li class="card">
+            <img class="card__image" src="images/dombai.jpg" alt="Домбай">
+            <div class="card__caption-container">
+              <h2 class="card__caption-text">Домбай</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
-          <li class="cards__item">
-            <img class="cards__image" src="images/elbrus.jpg" alt="Эльбрус">
-            <div class="cards__caption-container">
-            <h2 class="cards__caption-text">Гора Эльбрус</h2>
-              <button class="like-button"></button>
+          <li class="card">
+            <img class="card__image" src="images/elbrus.jpg" alt="Эльбрус">
+            <div class="card__caption-container">
+            <h2 class="card__caption-text">Гора Эльбрус</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
-          <li class="cards__item">
-            <img class="cards__image" src="images/dombai.jpg" alt="Домбай">
-            <div class="cards__caption-container">
-            <h2 class="cards__caption-text">Домбай</h2>
-              <button class="like-button"></button>
+          <li class="card">
+            <img class="card__image" src="images/dombai.jpg" alt="Домбай">
+            <div class="card__caption-container">
+            <h2 class="card__caption-text">Домбай</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
-          <li class="cards__item">
-            <img class="cards__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
-            <div class="cards__caption-container">
-              <h2 class="cards__caption-text">Карачаево-Черкесия</h2>
-              <button class="like-button"></button>
+          <li class="card">
+            <img class="card__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
+            <div class="card__caption-container">
+              <h2 class="card__caption-text">Карачаево-Черкесия</h2>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
         </ul>
@@ -75,17 +75,17 @@
     <footer class="footer section">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button"></button>
-        <form class="form">
+        <button type="button" class="popup__close-button"></button>
+        <form name="user-info" class="form">
           <h2 class="form__title">Редактировать профиль</h2>
-          <input class="form__username form__element" type="text" name="username" placeholder="Жак-Ив Кусто">
-          <input class="form__caption form__element" type="text" name="caption" placeholder="Исследователь океана">
+          <input class="form__element form__element_type_username" type="text" name="username" placeholder="Введите имя">
+          <input class="form__element form__element_type_caption" type="text" name="caption" placeholder="Расскажите о себе">
           <button class="form__save-button" type="submit" name="save-button">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>
