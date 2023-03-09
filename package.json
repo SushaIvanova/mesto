@@ -1,0 +1,24 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "### Обзор",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/bemify style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SushaIvanova/mesto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SushaIvanova/mesto/issues"
+  },
+  "homepage": "https://github.com/SushaIvanova/mesto#readme",
+  "devDependencies": {
+    "css-to-bem-file-structure": "^0.0.5"
+  }
+}
