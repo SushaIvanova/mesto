@@ -2,9 +2,3 @@
   padding: 0;
   max-width: 880px;
 }
-
-@media (max-width: 470px) {
-  .section_width_full {
-    
-  }
-}

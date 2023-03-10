@@ -11,7 +11,6 @@ const closePopup = function() {
   popupElement.classList.remove('popup_opened');
 }
 
-popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 
 const formElement = document.querySelector('.form');
