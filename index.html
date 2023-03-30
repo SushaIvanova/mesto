@@ -26,56 +26,13 @@
         <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements section">
-        <ul class="elements__table">
-          <li class="card">
-            <img class="card__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
-            <div class="card__caption-container">
-              <h2 class="card__caption-text">Карачаевск</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="images/elbrus.jpg" alt="Эльбрус">
-            <div class="card__caption-container">
-              <h2 class="card__caption-text">Гора Эльбрус</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="images/dombai.jpg" alt="Домбай">
-            <div class="card__caption-container">
-              <h2 class="card__caption-text">Домбай</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="images/elbrus.jpg" alt="Эльбрус">
-            <div class="card__caption-container">
-            <h2 class="card__caption-text">Гора Эльбрус</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="images/dombai.jpg" alt="Домбай">
-            <div class="card__caption-container">
-            <h2 class="card__caption-text">Домбай</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img class="card__image" src="images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкесия">
-            <div class="card__caption-container">
-              <h2 class="card__caption-text">Карачаево-Черкесия</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="elements__table"></ul>
       </section>
     </main>
     <footer class="footer section">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_purpose_profile">
       <div class="popup__container">
         <button type="button" class="popup__close-button"></button>
         <form name="user-info" class="form">
@@ -86,7 +43,35 @@
         </form>
       </div>
     </div>
+    <div class="popup popup_purpose_card">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button popup__close-button_purpose_card"></button>
+        <form name="user-info" class="form form_purpose_card">
+          <h2 class="form__title">Новое место</h2>
+          <input class="form__element form__element_type_place" type="text" name="username" placeholder="Название">
+          <input class="form__element form__element_type_link" type="text" name="caption" placeholder="Ссылка на картинку">
+          <button class="form__save-button" type="submit" name="save-button">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_purpose_image">
+      <div class="popup__container popup__container_purpose_image">
+        <button type="button" class="popup__close-button popup__close-button_purpose_image"></button>
+        <img src="" class="popup__image" alt="">
+        <p class="popup__image-title"></p>
+      </div>
+    </div>
   </div>
+    <template class="card__template">
+     <li class="card">
+      <button type="button" class="card__delete-button"></button>
+      <img class="card__image" src="#" alt="">
+      <div class="card__caption-container">
+        <h2 class="card__caption-text"></h2>
+        <button type="button" class="card__like-button"></button>
+      </div>
+    </li>
+    </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
