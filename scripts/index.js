@@ -1,10 +1,6 @@
-const popupElement = document.querySelector('.popup');
 const profilePopupElement = document.querySelector('.popup_purpose_profile');
-const popupElementsCollection = document.querySelectorAll('.popup');
 const popupCloseButtonsCollection = document.querySelectorAll('.popup__close-button');
-const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-
-console.log(profilePopupElement);
+const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
 
 //открытие всех попапов
 
@@ -25,21 +21,21 @@ popupCloseButtonsCollection.forEach((button) => {
   })
 })
 
-const formElement = document.querySelector('.form');
-const nameElement = formElement.querySelector('.form__element_type_username');
-const captionElement = formElement.querySelector('.form__element_type_caption');
+const profileFormElement = document.querySelector('.form_purpose_profile');
+const nameElement = profileFormElement.querySelector('.form__element_type_username');
+const captionElement = profileFormElement.querySelector('.form__element_type_caption');
 
 const nameContainerElement = document.querySelector('.profile__info-name');
 const captionContainerElement = document.querySelector('.profile__info-caption');
 
-const handleFormClick = function() {
+const openProfilePopup = function() {
   openPopup(profilePopupElement);
 
   nameElement.value = nameContainerElement.textContent;
   captionElement.value = captionContainerElement.textContent;
 }
 
-const handleFormSubmit = function(evt) {
+const handleProfileFormSubmit = function(evt) {
   evt.preventDefault();
 
   nameContainerElement.textContent = nameElement.value;
@@ -48,10 +44,9 @@ const handleFormSubmit = function(evt) {
   closePopup(profilePopupElement);
 }
 
-formElement.addEventListener('submit', handleFormSubmit);
+profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
-popupOpenButtonElement.addEventListener('click', handleFormClick);
-
+profilePopupOpenButtonElement.addEventListener('click', openProfilePopup);
 
 //попап для добавления карточки
 
@@ -66,33 +61,6 @@ placePopupOpenButton.addEventListener('click', openPlacePopup);
 
 //карточки из коробки при загрузке
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const cardTemplate = document.querySelector('.card__template');
 const list = document.querySelector('.elements__table');
 
@@ -100,13 +68,13 @@ const imagePopupElement = document.querySelector('.popup_purpose_image');
 const popupImageElement = imagePopupElement.querySelector('.popup__image');
 const popupImageTitleElement = imagePopupElement.querySelector('.popup__image-title');
 
-
 const  createCard = function (card) {
   const cardTemplateElement = cardTemplate.content.cloneNode(true);
   const imageElement = cardTemplateElement.querySelector('.card__image');
   const captionElement = cardTemplateElement.querySelector('.card__caption-text');
 
   imageElement.src = card.link;
+  imageElement.alt = card.name;
   captionElement.textContent = card.name;
 
   //лайк
@@ -115,6 +83,7 @@ const  createCard = function (card) {
   const pressLike = function () {
     likeButton.classList.toggle('card__like-button_active');
   }
+
   likeButton.addEventListener('click', pressLike);
 
   // удаление карточки
@@ -130,6 +99,7 @@ const  createCard = function (card) {
   
   const openImagePopup = function () {
     popupImageElement.src = card.link;
+    popupImageElement.alt = card.name;
     popupImageTitleElement.textContent = card.name;
     openPopup(imagePopupElement);
   }
@@ -141,12 +111,11 @@ const  createCard = function (card) {
   return cardTemplateElement;
 };
 
-const uploadCards = function (card) {
+const uploadInitialCards = function (card) {
   list.append(createCard(card));
 }
 
-initialCards.forEach(uploadCards);
-
+initialCards.forEach(uploadInitialCards);
 
 //добавление карточки по сабмиту
 
@@ -157,17 +126,16 @@ const linkElement = cardFormElement.querySelector('.form__element_type_link');
 const placeContainerElement = document.querySelector('.card__caption-text');
 const linkContainerElement = document.querySelector('.card__image');
 
-console.log(placePopupElement);
-
 const handleCardSubmit = function(evt) {
   evt.preventDefault();
 
   const cardObject = {name: placeElement.value, link: linkElement.value};
-  placeElement.value = '';
-  linkElement.value = '';
-
+  
   list.prepend(createCard(cardObject));
+  
   closePopup(placePopupElement);
+
+  cardFormElement.reset();
 };
 
 cardFormElement.addEventListener('submit', handleCardSubmit);

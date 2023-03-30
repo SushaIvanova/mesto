@@ -20,10 +20,10 @@
           <div class="profile__info">
             <h1 class="profile__info-name">Жак-Ив Кусто</h1>
             <p class="profile__info-caption">Исследователь океана</p>
-            <button type="button" class="profile__edit-button"></button>
+            <button type="button" class="profile__edit-button" aria-label="Изменить"></button>
           </div>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button type="button" class="profile__add-button" aria-label="Добавить"></button>
       </section>
       <section class="elements section">
         <ul class="elements__table"></ul>
@@ -34,29 +34,29 @@
     </footer>
     <div class="popup popup_purpose_profile">
       <div class="popup__container">
-        <button type="button" class="popup__close-button"></button>
-        <form name="user-info" class="form">
+        <button type="button" class="popup__close-button" aria-label="Сохранить изменения"></button>
+        <form name="user-info" class="form form_purpose_profile">
           <h2 class="form__title">Редактировать профиль</h2>
-          <input class="form__element form__element_type_username" type="text" name="username" placeholder="Введите имя">
-          <input class="form__element form__element_type_caption" type="text" name="caption" placeholder="Расскажите о себе">
+          <input class="form__element form__element_type_username" type="text" name="username" placeholder="Введите имя" required>
+          <input class="form__element form__element_type_caption" type="text" name="caption" placeholder="Расскажите о себе" required>
           <button class="form__save-button" type="submit" name="save-button">Сохранить</button>
         </form>
       </div>
     </div>
     <div class="popup popup_purpose_card">
       <div class="popup__container">
-        <button type="button" class="popup__close-button popup__close-button_purpose_card"></button>
+        <button type="button" class="popup__close-button popup__close-button_purpose_card" aria-label="Закрыть"></button>
         <form name="user-info" class="form form_purpose_card">
           <h2 class="form__title">Новое место</h2>
-          <input class="form__element form__element_type_place" type="text" name="username" placeholder="Название">
-          <input class="form__element form__element_type_link" type="text" name="caption" placeholder="Ссылка на картинку">
+          <input class="form__element form__element_type_place" type="text" name="username" placeholder="Название" required>
+          <input class="form__element form__element_type_link" type="url" name="caption" placeholder="Ссылка на картинку" required>
           <button class="form__save-button" type="submit" name="save-button">Создать</button>
         </form>
       </div>
     </div>
     <div class="popup popup_purpose_image">
       <div class="popup__container popup__container_purpose_image">
-        <button type="button" class="popup__close-button popup__close-button_purpose_image"></button>
+        <button type="button" class="popup__close-button popup__close-button_purpose_image" aria-label="Закрыть"></button>
         <img src="#" class="popup__image" alt="">
         <p class="popup__image-title"></p>
       </div>
@@ -64,14 +64,15 @@
   </div>
     <template class="card__template">
      <li class="card">
-      <button type="button" class="card__delete-button"></button>
+      <button type="button" class="card__delete-button" aria-label="Удалить"></button>
       <img class="card__image" src="#" alt="">
       <div class="card__caption-container">
         <h2 class="card__caption-text"></h2>
-        <button type="button" class="card__like-button"></button>
+        <button type="button" class="card__like-button" aria-label="Мне нравится"></button>
       </div>
     </li>
     </template>
+  <script src="./scripts/constants.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
