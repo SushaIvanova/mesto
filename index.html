@@ -37,8 +37,10 @@
         <button type="button" class="popup__close-button" aria-label="Сохранить изменения"></button>
         <form name="user-info" class="form form_purpose_profile">
           <h2 class="form__title">Редактировать профиль</h2>
-          <input class="form__element form__element_type_username" type="text" name="username" placeholder="Введите имя" required>
-          <input class="form__element form__element_type_caption" type="text" name="caption" placeholder="Расскажите о себе" required>
+          <input class="form__element form__element_type_username" type="text" name="username" id="username" placeholder="Введите имя" minlength="2" maxlength="40" required>
+          <span class="form-error username-form-error" id="username-form-error"></span>
+          <input class="form__element form__element_type_caption" type="text" name="caption" id="caption" placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
+          <span class="form-error caption-form-error" id="caption-form-error"></span>
           <button class="form__save-button" type="submit" name="save-button">Сохранить</button>
         </form>
       </div>
@@ -48,8 +50,10 @@
         <button type="button" class="popup__close-button popup__close-button_purpose_card" aria-label="Закрыть"></button>
         <form name="user-info" class="form form_purpose_card">
           <h2 class="form__title">Новое место</h2>
-          <input class="form__element form__element_type_place" type="text" name="username" placeholder="Название" required>
-          <input class="form__element form__element_type_link" type="url" name="caption" placeholder="Ссылка на картинку" required>
+          <input class="form__element form__element_type_place" type="text" name="place" id="place" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="form-error place-form-error" id="place-form-error"></span>
+          <input class="form__element form__element_type_link" type="url" name="link" id="link" placeholder="Ссылка на картинку" required>
+          <span class="form-error link-form-error" id="link-form-error"></span>
           <button class="form__save-button" type="submit" name="save-button">Создать</button>
         </form>
       </div>
@@ -73,6 +77,7 @@
     </li>
     </template>
   <script src="./scripts/constants.js"></script>
+  <script src="./scripts/validation.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

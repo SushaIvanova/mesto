@@ -3,6 +3,8 @@
   box-sizing: border-box;
   align-self: center;
   margin: 0 auto;
+  min-width: 430px;
+  min-height: 330px;
 }
 
 @media (max-width: 470px) {

@@ -49,4 +49,8 @@
 @import url(../blocks/form/__element/_type/form__element_type_caption.css);
 @import url(../blocks/form/__element/_type/form__element_type_name.css);
 @import url(../blocks/form/__element/_type/form__element_type_link.css);
+@import url(../blocks/form/__element/_type/form__element_type_error.css);
 @import url(../blocks/form/__save-button/form__save-button.css);
+@import url(../blocks/form/__save-button/_state/form__save-button_state_inactive.css);
+@import url(../blocks/form-error/form-error.css);
+@import url(../blocks/form-error/_visible/form-error_visible.css);

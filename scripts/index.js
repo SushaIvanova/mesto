@@ -2,16 +2,26 @@ const profilePopupElement = document.querySelector('.popup_purpose_profile');
 const popupCloseButtonsCollection = document.querySelectorAll('.popup__close-button');
 const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
 
-//открытие всех попапов
+const closePopupByEsc = function(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  };
+}
+
+
+//открытие всех попапов]
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
 //закрытие всех попапов
 
 const closePopup = function(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
 popupCloseButtonsCollection.forEach((button) => {
@@ -20,6 +30,22 @@ popupCloseButtonsCollection.forEach((button) => {
     closePopup(popup);
   })
 })
+
+//закрытие попапов по оверлею
+
+const popupsList = document.querySelectorAll('.popup');
+
+const closePopupByOverlay = function(evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (evt.target === evt.currentTarget) {
+    closePopup(openedPopup);
+  };
+}
+
+popupsList.forEach((popup) => {
+  popup.addEventListener('click', closePopupByOverlay);
+})
+
 
 const profileFormElement = document.querySelector('.form_purpose_profile');
 const nameElement = profileFormElement.querySelector('.form__element_type_username');
@@ -139,3 +165,15 @@ const handleCardSubmit = function(evt) {
 };
 
 cardFormElement.addEventListener('submit', handleCardSubmit);
+
+//добавление карточки по кнопке Enter
+
+const keyHandler = function (evt) {
+  if (evt.key === 'Enter') {
+    handleCardSubmit();
+  }
+};
+
+placeElement.addEventListener('keydown', keyHandler);
+
+linkElement.addEventListener('keydown', keyHandler);
