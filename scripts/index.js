@@ -36,9 +36,8 @@ popupCloseButtonsCollection.forEach((button) => {
 const popupsList = document.querySelectorAll('.popup');
 
 const closePopupByOverlay = function(evt) {
-  const openedPopup = document.querySelector('.popup_opened');
   if (evt.target === evt.currentTarget) {
-    closePopup(openedPopup);
+    closePopup(evt.target);
   };
 }
 
@@ -119,6 +118,7 @@ const  createCard = function (card) {
     const listItem = deleteButtonElement.closest('.card');
     listItem.remove();
   };
+  
   deleteButtonElement.addEventListener('click', handleCardDelete);
 
   // попап для картинки
@@ -162,18 +162,9 @@ const handleCardSubmit = function(evt) {
   closePopup(placePopupElement);
 
   cardFormElement.reset();
+
+  evt.submitter.classList.add('form__save-button_state_inactive')
+  evt.submitter.disabled = true;
 };
 
 cardFormElement.addEventListener('submit', handleCardSubmit);
-
-//добавление карточки по кнопке Enter
-
-const keyHandler = function (evt) {
-  if (evt.key === 'Enter') {
-    handleCardSubmit();
-  }
-};
-
-placeElement.addEventListener('keydown', keyHandler);
-
-linkElement.addEventListener('keydown', keyHandler);
