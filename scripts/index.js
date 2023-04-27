@@ -1,4 +1,4 @@
-import initialCards from './constants.js';
+import {initialCards, validationConfig} from './constants.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
@@ -93,6 +93,7 @@ const placePopupOpenButton = document.querySelector('.profile__add-button');
 
 const openPlacePopup = function() {
   openPopup(placePopupElement);
+  cardFormElementValidator.toggleButtonState();
 };
 
 placePopupOpenButton.addEventListener('click', openPlacePopup);
@@ -105,20 +106,21 @@ const imagePopupElement = document.querySelector('.popup_purpose_image');
 const popupImageElement = imagePopupElement.querySelector('.popup__image');
 const popupImageTitleElement = imagePopupElement.querySelector('.popup__image-title');
 
-const  createCard = function (card) {
-  
-};
+// метод, возвращающий готовую карточку
+const createCard = function(cardObject) {
+  // создает экземпляр класса Card
+  const card = new Card(cardObject, cardTemplate, openImagePopup);
+
+  return card.generateCard();
+}
 
 const uploadInitialCards = function(list, card) {
   list.append(card);
 }
 
 initialCards.forEach(element => {
-
-  // создает экземпляр класса Card
-  const card = new Card (element, cardTemplate, openImagePopup);
   
-  uploadInitialCards(list, card.generateCard());
+  uploadInitialCards(list, createCard(element));
 });
 
 // добавление карточки по сабмиту
@@ -134,30 +136,17 @@ const handleCardSubmit = function(evt) {
   evt.preventDefault();
 
   const cardObject = {name: placeElement.value, link: linkElement.value};
-
-  // создает экземпляр класса Card
-  const card = new Card(cardObject, cardTemplate, openImagePopup);
   
-  list.prepend(card.generateCard());
+  list.prepend(createCard(cardObject));
   
   closePopup(placePopupElement);
 
   cardFormElement.reset();
 
-  evt.submitter.classList.add('form__save-button_state_inactive')
-  evt.submitter.disabled = true;
+  cardFormElementValidator.toggleButtonState();
 };
 
 cardFormElement.addEventListener('submit', handleCardSubmit);
-
-const validationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__element',
-  submitButtonSelector: '.form__save-button',
-  inactiveButtonClass: 'form__save-button_state_inactive',
-  inputErrorClass: 'form__element_type_error',
-  errorClass: 'form-error_visible'
-}
 
 // экземпляр для формы редактирования профиля
 const profileFormElementValidator = new FormValidator(validationConfig, profileFormElement);

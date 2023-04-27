@@ -25,4 +25,14 @@ const initialCards = [
   }
 ];
 
-export default initialCards;
+
+const validationConfig = {
+  formSelector: '.form',
+  inputSelector: '.form__element',
+  submitButtonSelector: '.form__save-button',
+  inactiveButtonClass: 'form__save-button_state_inactive',
+  inputErrorClass: 'form__element_type_error',
+  errorClass: 'form-error_visible'
+}
+
+export {initialCards, validationConfig};

@@ -1,7 +1,6 @@
 
 export default class FormValidator {
   constructor(validationConfig, form) {
-    this._formSelector = validationConfig.formSelector;
     this._inputSelector = validationConfig.inputSelector;
     this._submitButtonSelector = validationConfig.submitButtonSelector;
     this._inactiveButtonClass = validationConfig.inactiveButtonClass;
@@ -43,13 +42,13 @@ export default class FormValidator {
   }
 
   // изменяет состояние кнопки сабмита
-  _toggleButtonState(button) {
+  toggleButtonState() {
     if (this._hasInvalidInput()) {
-      button.classList.add(this._inactiveButtonClass);
-      button.setAttribute('disabled', true);
+      this._formButton.classList.add(this._inactiveButtonClass);
+      this._formButton.setAttribute('disabled', true);
     } else {
-      button.classList.remove(this._inactiveButtonClass);
-      button.removeAttribute('disabled');
+      this._formButton.classList.remove(this._inactiveButtonClass);
+      this._formButton.removeAttribute('disabled');
     };
   }
 
@@ -61,7 +60,7 @@ export default class FormValidator {
     this._formInputs.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
-        this._toggleButtonState(this._formButton);
+        this.toggleButtonState();
       });
     });
   }
