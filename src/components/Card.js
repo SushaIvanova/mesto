@@ -1,8 +1,8 @@
 export default class Card {
-  constructor(data, templateSelector, openImagePopup) {
+  constructor(data, templateSelector, handleCardClick) {
     this._data = data;
     this._templateSelector = templateSelector;
-    this._openImagePopup = openImagePopup;
+    this._handleCardClick = handleCardClick;
   }
 
   // получаем разметку из темплейта
@@ -26,7 +26,7 @@ export default class Card {
 
   // колбэк открытия зума картинки
   _handleOpenImagePopup() {
-    this._openImagePopup(this._data)
+    this._handleCardClick(this._data)
   }
 
   // накладывает все обработчики событий на КАРТОЧКУ

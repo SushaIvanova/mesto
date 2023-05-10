@@ -1,24 +1,31 @@
 {
   "name": "mesto",
   "version": "1.0.0",
-  "description": "### Обзор",
+  "description": "Интерактивная страница, на которую можно добавлять фотографии, удалять их и ставить лайки. Реализованные функции: 1. Адаптивная верстка 2. Попапы:     * с формой для редактирования и отправки данный пользователя;   * с формой для добавление карточки с фото и комментарием;   * для просмотра фотографий 3. Удаление карточки 4. Кнопка лайка карточки 5. Плавное открытие и закрытие попапов 6. Код разбит на модули",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/bemify style.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --open --mode development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SushaIvanova/mesto.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Sasha Ivanova",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SushaIvanova/mesto/issues"
-  },
-  "homepage": "https://github.com/SushaIvanova/mesto#readme",
   "devDependencies": {
-    "css-to-bem-file-structure": "^0.0.5"
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^6.0.1",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss-loader": "^7.3.0",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "core-js": "^3.30.2"
   }
 }
