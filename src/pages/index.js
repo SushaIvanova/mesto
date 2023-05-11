@@ -1,5 +1,15 @@
 import './index.css';
-import {initialCards, validationConfig} from '../components/constants.js';
+import {
+  initialCards, 
+  validationConfig, 
+  info, 
+  cardFormElement, 
+  profileFormElement, 
+  profilePopupOpenButtonElement, 
+  placePopupOpenButton, 
+  imagePopupSelector, 
+  profilePopupSelector, 
+  cardPopupSelector} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -7,22 +17,7 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
-const cardFormElement = document.querySelector('.form_purpose_card');
-const profileFormElement = document.querySelector('.form_purpose_profile');
 
-const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
-const placePopupOpenButton = document.querySelector('.profile__add-button');
-
-const imagePopupSelector = '.popup_purpose_image';
-const profilePopupSelector = '.popup_purpose_profile';
-const cardPopupSelector = '.popup_purpose_card';
-
-const info = {
-  nameSelector: '.profile__info-name',
-  captionSelector: '.profile__info-caption'
-}
-
-export {info};
 
 const userInfo = new UserInfo(info);
 
@@ -31,18 +26,16 @@ const userInfo = new UserInfo(info);
 const profilePopup = new PopupWithForm(profilePopupSelector, (evt) => {
   evt.preventDefault();
 
-  userInfo.setUserInfo(profilePopup._getInputValues());
+  userInfo.setUserInfo(profilePopup.getInputValues());
 
   profilePopup.close();
-
-  cardFormElementValidator.toggleButtonState();
 })
 
 // открытие попапа профиля 
 
 const openProfilePopup = function() {
   profilePopup.setInputValues(userInfo.getUserinfo());
-
+  profileFormElementValidator.resetValidation();
   // метод открытия попапа из класса Popup
   profilePopup.open();
 }
@@ -56,7 +49,7 @@ profilePopup.setEventListeners();
 const cardPopup = new PopupWithForm(cardPopupSelector, (evt) => {
   evt.preventDefault();
 
-  section.addItem(section._renderer(cardPopup._getInputValues()));
+  section.addItem(section._renderer(cardPopup.getInputValues()));
 
   cardPopup.close();
 })
@@ -69,7 +62,7 @@ const openPlacePopup = function() {
   // метод открытия попапа из класса Popup
   cardPopup.open();
 
-  cardFormElementValidator.toggleButtonState();
+  cardFormElementValidator.resetValidation();
 };
 
 placePopupOpenButton.addEventListener('click', openPlacePopup);

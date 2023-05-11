@@ -6,6 +6,8 @@ export default class FormValidator {
     this._inputErrorClass = validationConfig.inputErrorClass;
     this._errorClass = validationConfig.errorClass;
     this._form = form;
+
+    this._inputList = this._form.querySelectorAll('.form__element');
   }
 
   // скрывает сообщение об ошибке
@@ -67,6 +69,13 @@ export default class FormValidator {
   // включает валидацию формы
   enableValidation() {
     this._setEventListeners();
+  }
+
+  resetValidation() {
+    this.toggleButtonState();
+    this._inputList.forEach((input) => {
+      this. _hideInputError(input);
+    });
   }
 }
 

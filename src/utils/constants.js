@@ -35,4 +35,19 @@ const validationConfig = {
   errorClass: 'form-error_visible'
 }
 
-export {initialCards, validationConfig};
+export const cardFormElement = document.forms["card-form"];
+export const profileFormElement = document.forms["user-info"];
+
+export const profilePopupOpenButtonElement = document.querySelector('.profile__edit-button');
+export const placePopupOpenButton = document.querySelector('.profile__add-button');
+
+export const imagePopupSelector = '.popup_purpose_image';
+export const profilePopupSelector = '.popup_purpose_profile';
+export const cardPopupSelector = '.popup_purpose_card';
+
+const info = {
+  nameSelector: '.profile__info-name',
+  captionSelector: '.profile__info-caption'
+}
+
+export {initialCards, validationConfig, info};
