@@ -49,7 +49,7 @@ profilePopup.setEventListeners();
 const cardPopup = new PopupWithForm(cardPopupSelector, (evt) => {
   evt.preventDefault();
 
-  section.addItem(section._renderer(cardPopup.getInputValues()));
+  section.addItem(section.renderer(cardPopup.getInputValues()));
 
   cardPopup.close();
 })
